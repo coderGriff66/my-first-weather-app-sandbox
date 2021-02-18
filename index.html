@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Weather App Wireframe</title>
+  <meta charset="UTF-8" />
+  <meta name="=viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://kit.fontawesome.com/78d16cafc2.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Hind:wght@500&family=Merriweather+Sans&family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css" />
+
+</head>
+<body>
+
+  <div class="container">
+    <div class ="weatherApp">
+
+  <!-- This section to pull day, date, time and city entered -->
+
+      <div class="row">
+          <div class="col-6">
+            <h3 class="top-header">Your Weather Forecast</h3>
+          </div>
+            <div class="col-6">
+              <ul class="what-is-today">
+                 <li id="what-date"><strong>Saturday, Jan. 30, 2021</strong></li>
+                 <li id="what-time"><strong>7:30pm</strong></li>
+             </ul>
+          </div>
+      </div>
+ 
+     <form class="search-form" id="search-form">
+      <div class="row your-choice">
+        <div class="col-7">
+          <input type="search" placeholder="ENTER YOR CITY" autofocus="on" id="search-city" class="form-control shadow sm border=0">
+        </div>
+         <div class="col-3">
+          <input type="submit" value="Search" class="btn btn-success" class="form-control shadow sm border=1"/>
+          </div>
+        
+        <div class="col-2">
+          <button class="current-button" id="current-button">Current</button>
+          </div>
+        </div>
+      </form>
+        <div class="city-chosen">
+          <h1 id="city">Detroit</h1>
+        </div>
+
+  <!-- Current weather conditions grouping left under city chosen -->
+
+      <div class="row">
+        <div class="col-5">
+            <div class="card lft">
+              <ul class="conditions" id="conditions">
+                <li><span>Feels Like: <strong id="feels">38</strong></span><span><strong>&#176</strong></span></li>
+                <li><span>Barometer: <strong id="barom">29.98</strong></span></li>
+                <li><span>Humidity: <strong id="humid">46</strong></span><span><strong>%</strong></span></li>
+                <li><span>Winds: <strong id="direction">SW</strong></span><span><strong id="winds">&nbsp;10</strong></span><span><strong>mph</strong></span></li>
+              </ul>
+            </div>
+        </div>
+            
+  <!--Wx icon, current temp and skies near top right, choice of temp in farenheit or celcius -->
+
+        <div class="col-7 big-temp">
+          <div class="card rt-wx">
+              <h2 class="tempNow" id="temp-now" >40<span>&#176</span></h2>
+              <i class="fas fa-sun main-wx" id="big-temp-icon"></i>
+              <button class=farhenheit id="farhenheit-button">F</button>
+              <button class= celcius id="celcius-button">C</button>
+              <h3 class="skyNow" id="sky-now">Sunny</h3>
+          </div>
+        </div>
+      </div>
+
+  <!-- What your day will look like temp-wise  4 pannels: time, wx icon, temp -->
+
+      <h4 class="your-day">PLAN YOUR DAY</h4>
+      
+        <div class="row middle">
+          <div class="col-3">
+            <div class="day-temps">
+              <div class="card">
+                <h5 class="card-title2">6 AM</h5>
+                  <div class="card-body2">
+                    <i class="fas fa-cloud centre-wx"></i>
+                      <p class="card-text">37&#176</p>
+                  </div>
+              </div>
+            </div>
+          </div>    
+          <div class="col-3">
+            <div class="day-temps">
+              <div class="card">
+                <h5 class="card-title2">NOON</h5>
+                  <div class="card-body2">
+                    <i class="fas fa-sun centre-wx"></i>
+                      <p class="card-text">37&#176</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="day-temps">
+              <div class="card">
+                <h5 class="card-title2">6 PM</h5>
+                  <div class="card-body2">
+                    <i class="fas fa-cloud-sun centre-wx"></i>
+                      <p class="card-text">37&#176</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="day-temps">
+              <div class="card">
+                  <h5 class="card-title2">10 PM</h5>
+                    <div class="card-body2">
+                      <i class="fas fa-cloud-moon centre-wx"></i>
+                        <p class="card-text">37&#176</p>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+
+  <!-- Forecast for next 5 days  5 panels: day, wx icon, hi-low temp -->
+  
+      <h4 class="five-day">5 DAY PLANNER</h4> 
+          
+      <div class="row last">
+        <div class="col">
+          <div class="card">
+            <h4 class="card-title3">Friday</h4>
+              <div class="card-body3">
+                <i class="fas fa-sun dayone"></i>
+                  <p class="card-text3"><strong>37</strong> / <em>35</em></p>
+              </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h4 class="card-title3">Saturday</h4>
+              <div class="card-body3">
+              <i class="fas fa-sun daytwo"></i>
+                <p class="card-text3"><strong>37</strong> / <em>35</em></p>
+              </div>
+          </div>
+        </div>
+          <div class="col">
+            <div class="card">
+              <h4 class="card-title3">Sunday</h4>
+                <div class="card-body3">
+                <i class="fas fa-sun daythree"></i>
+                  <p class="card-text3"><strong>37</strong> / <em>35</em></p>
+                </div>
+            </div>
+        </div>
+          <div class="col">
+            <div class="card">
+              <h4 class="card-title3">Monday</h4>
+                <div class="card-body3">
+                <i class="fas fa-sun dayfour"></i>
+                  <p class="card-text3"><strong>37</strong> / <em>35</em></p>
+                </div>
+            </div>
+        </div>
+          <div class="col">
+            <div class="card">
+              <h4 class="card-title3">Tuesday</h4>
+                <div class="card-body3">
+                <i class="fas fa-sun dayfive"></i>
+                  <p class="card-text3"><strong>37</strong> / <em>35</em></p>
+                </div>
+            </div>
+          </div>
+        </div>
+        <p> <a href="https://github.com/coderGriff66/my-first-weather-app" target="_blank" class="myinfo">Open-source code</a>&nbsp;<span>by Jennifer Griffin</span>
+        </p>     
+    </div>
+  </div>
+
+ <script src="src/index.js"></script>
+    
+</body>
+
+</html>
